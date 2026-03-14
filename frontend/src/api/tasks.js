@@ -1,7 +1,7 @@
 // src/api/tasks.js
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000'; // Your backend URL
+const BASE_URL = 'https://to-do-backend-eve9.onrender.com'; // Your backend URL
 
 export const getTasks = async () => {
   const res = await axios.get(`${BASE_URL}/tasks`);
