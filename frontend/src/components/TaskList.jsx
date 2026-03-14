@@ -1,7 +1,17 @@
 // src/components/TaskList.jsx
 import React from 'react';
+import { updateTask } from "../api/tasks";
 
 export default function TaskList({ tasks, onEdit, onDelete }) {
+  const handleComplete = async (task) => {
+  await updateTask(task.id, {
+    ...task,
+    status: "Complete",
+  });
+
+  window.location.reload(); // quick refresh for now
+};
+
   return (
     <div className="task-list">
 
@@ -20,8 +30,22 @@ export default function TaskList({ tasks, onEdit, onDelete }) {
           </div>
 
           <div className="task-buttons">
-            <button onClick={() => onEdit(task)}>Edit</button>
-            <button onClick={() => onDelete(task.id)}>Delete</button>
+            <div className="task-buttons">
+
+  		{task.status !== "Complete" && (
+		<button className="complete-btn" onClick={() => handleComplete(task)}>
+		  Complete
+		</button>		  )}
+
+		  <button onClick={() => onEdit(task)}>
+		    Edit
+		  </button>
+
+		  <button onClick={() => onDelete(task.id)}>
+		    Delete
+		  </button>
+
+		</div>
           </div>
 
         </div>
