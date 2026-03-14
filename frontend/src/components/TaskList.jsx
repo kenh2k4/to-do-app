@@ -4,18 +4,19 @@ import React from 'react';
 export default function TaskList({ tasks, onEdit, onDelete }) {
   return (
     <div className="task-list">
-      {tasks.map((task) => (
-        <div key={task.id} className="task-row">
 
-          <div className="task-info">
-            <strong>{task.task_name}</strong><br />
-            {task.status} | {task.priority}
-            {task.due_date && (
-              <>
-                <br />
-                Due: {task.due_date}
-              </>
-            )}
+      {tasks.map((task) => (
+        <div key={task.id} className="task-card">
+
+          <div className="task-title">
+            {task.task_name}
+          </div>
+
+          <div className="task-details">
+            <div><b>Priority:</b> {task.priority}</div>
+            <div><b>Location:</b> {task.location}</div>
+            <div><b>Due:</b> {task.due_date || "-"}</div>
+            <div><b>Status:</b> {task.status}</div>
           </div>
 
           <div className="task-buttons">
@@ -25,6 +26,7 @@ export default function TaskList({ tasks, onEdit, onDelete }) {
 
         </div>
       ))}
+
     </div>
   );
 }

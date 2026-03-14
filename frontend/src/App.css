@@ -157,4 +157,39 @@ form div {
     inset: 20px !important;
   }
 
+  .button {
+    width: 100%;
+  }
+
+}
+
+/* ---------- CARD LAYOUT ---------- */
+
+.task-card {
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #1e1e1e;
+}
+
+.task-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.task-details div {
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.task-buttons {
+  margin-top: 8px;
+  display: flex;
+  gap: 5px;
+}
+
+.task-buttons button {
+  flex: 1;
 }
