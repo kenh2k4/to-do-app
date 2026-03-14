@@ -3,6 +3,13 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  color-scheme: dark;
+}
+
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .logo {
@@ -55,4 +62,51 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+.ReactModal__Content {
+  background-color: #1e1e1e !important;
+  color: #ffffff !important;
+  border: 1px solid #444 !important;
+}
+
+.ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+label {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+input,
+select,
+textarea {
+  background-color: #2a2a2a;
+  color: #ffffff;
+  border: 1px solid #555;
+  padding: 6px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #888;
+}
+
+button {
+  background-color: #333;
+  color: white;
+  border: 1px solid #666;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+form div {
+  margin-bottom: 12px;
 }
