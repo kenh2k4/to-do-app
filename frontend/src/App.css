@@ -4,12 +4,6 @@
   color-scheme: dark;
 }
 
-#root {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
 body {
   margin: 0;
   background-color: #121212;
@@ -17,30 +11,39 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+#root {
+  max-width: 900px;
+  margin: auto;
+  padding: 1rem;
+}
+
 
 /* ---------- HEADERS ---------- */
 
-h1, h2 {
+h1,
+h2 {
   margin-top: 10px;
 }
 
 
 /* ---------- BUTTONS ---------- */
 
-.app button {
-  background-color: #333;
-}
-
 button {
+  background-color: #333;
   color: white;
   border: 1px solid #666;
   padding: 8px 10px;
   cursor: pointer;
   font-size: 16px;
+  border-radius: 6px;
 }
 
 button:hover {
   background-color: #555;
+}
+
+.full-width {
+  width: 100%;
 }
 
 
@@ -54,6 +57,7 @@ textarea {
   border: 1px solid #555;
   padding: 6px;
   font-size: 16px;
+  border-radius: 4px;
 }
 
 input:focus,
@@ -63,110 +67,8 @@ textarea:focus {
   border-color: #888;
 }
 
-label {
-  color: #ffffff;
-  font-weight: bold;
-}
 
-form div {
-  margin-bottom: 12px;
-}
-
-
-/* ---------- TASK LIST ---------- */
-
-.task-list {
-  width: 100%;
-}
-
-.task-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #444;
-  padding: 10px;
-}
-
-.task-info {
-  flex: 1;
-}
-
-.task-buttons {
-  display: flex;
-  gap: 5px;
-}
-
-
-/* ---------- MODAL ---------- */
-
-.ReactModal__Overlay {
-  background-color: rgba(0, 0, 0, 0.7) !important;
-}
-
-.ReactModal__Content {
-  background-color: #1e1e1e !important;
-  color: white !important;
-  border: 1px solid #444 !important;
-  max-width: 500px;
-  width: 90%;
-  margin: auto;
-}
-
-
-/* ---------- SPINNER ---------- */
-
-.spinner {
-  margin: 20px auto;
-  width: 40px;
-  height: 40px;
-  border: 5px solid #444;
-  border-top: 5px solid white;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-
-/* ---------- MOBILE ---------- */
-
-@media (max-width: 600px) {
-
-  #root {
-    padding: 10px;
-  }
-
-  .task-row {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .task-buttons {
-    width: 100%;
-    margin-top: 5px;
-  }
-
-  .task-buttons button {
-    width: 100%;
-    margin-top: 5px;
-  }
-
-  .ReactModal__Content {
-    width: 95% !important;
-    inset: 20px !important;
-  }
-
-  .button {
-    width: 100%;
-  }
-
-}
-
-/* ---------- CARD LAYOUT ---------- */
+/* ---------- TASK CARDS ---------- */
 
 .task-card {
   border: 1px solid #444;
@@ -197,14 +99,38 @@ form div {
   flex: 1;
 }
 
-button.complete-btn {
+
+/* ---------- COMPLETE BUTTON ---------- */
+
+.complete-btn {
   background-color: #2e7d32;
   border-color: #2e7d32;
 }
 
-button.complete-btn:hover {
+.complete-btn:hover {
   background-color: #3fa344;
 }
+
+
+/* ---------- MODAL ---------- */
+
+.ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.ReactModal__Content {
+  background-color: #1e1e1e !important;
+  color: white !important;
+  border: 1px solid #444 !important;
+  max-width: 600px;
+  width: 90%;
+  margin: auto;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+
+/* ---------- MODAL FORM ---------- */
 
 .modal-form {
   display: flex;
@@ -212,10 +138,31 @@ button.complete-btn:hover {
   gap: 10px;
 }
 
-.modal-form input,
-.modal-form select {
+.modal-form div {
+  display: flex;
+  flex-direction: column;
   flex: 1 1 150px;
+  text-align: left;
 }
+
+/* labels only inside modal */
+
+.modal-form label {
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.modal-form input,
+.modal-form select,
+.modal-form textarea {
+  background-color: #2a2a2a;
+  color: #ffffff;
+  border: 1px solid #555;
+}
+
+
+/* ---------- MODAL BUTTONS ---------- */
 
 .modal-buttons {
   display: flex;
@@ -224,8 +171,8 @@ button.complete-btn:hover {
 }
 
 .modal-buttons button {
+  flex: 1;
   background-color: #1976d2;
-  color: white;
   border: none;
 }
 
@@ -233,16 +180,49 @@ button.complete-btn:hover {
   background-color: #555;
 }
 
-.ReactModal__Content {
-  max-width: 600px;
-  margin: auto;
-  border-radius: 10px;
-  padding: 20px;
+
+/* ---------- SPINNER ---------- */
+
+.spinner {
+  margin: 20px auto;
+  width: 40px;
+  height: 40px;
+  border: 5px solid #444;
+  border-top: 5px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
 }
 
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* ---------- MOBILE ---------- */
+
 @media (max-width: 600px) {
+
+  #root {
+    padding: 10px;
+  }
+
+  .task-buttons {
+    flex-direction: column;
+  }
+
+  .task-buttons button {
+    width: 100%;
+  }
+
   .ReactModal__Content {
-    width: 95%;
+    width: 95% !important;
     inset: 10px !important;
   }
+
+  .modal-buttons {
+    flex-direction: column;
+  }
+
 }
