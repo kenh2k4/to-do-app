@@ -90,7 +90,7 @@ export default function TaskModal({ isOpen, onClose, task, onSave }) {
       <form className="modal-form" onSubmit={handleSubmit}>
         {/* Task Name */}
         <div>
-          <label>Task Name</label>
+          <label>Task Name: </label>
           <input
             name="task_name"
             value={formData.task_name}
@@ -101,7 +101,7 @@ export default function TaskModal({ isOpen, onClose, task, onSave }) {
 
         {/* Location */}
         <div>
-          <label>Location</label>
+          <label>Location: </label>
           <input
             name="location"
             value={formData.location}
@@ -111,7 +111,7 @@ export default function TaskModal({ isOpen, onClose, task, onSave }) {
 
         {/* List */}
         <div>
-          <label>List</label>
+          <label>List: </label>
           <select
             name="list_id"
             value={formData.list_id}
@@ -130,7 +130,7 @@ export default function TaskModal({ isOpen, onClose, task, onSave }) {
 
         {/* Priority */}
         <div>
-          <label>Priority</label>
+          <label>Priority: </label>
           <select
             name="priority"
             value={formData.priority}
@@ -144,7 +144,7 @@ export default function TaskModal({ isOpen, onClose, task, onSave }) {
 
         {/* Status */}
         <div>
-          <label>Status</label>
+          <label>Status: </label>
           <select
             name="status"
             value={formData.status}
@@ -158,7 +158,7 @@ export default function TaskModal({ isOpen, onClose, task, onSave }) {
 
         {/* Due Date */}
         <div>
-          <label>Due Date</label>
+          <label>Due Date: </label>
           <input
             type="date"
             name="due_date"

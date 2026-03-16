@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import TaskList from './components/TaskList';
 import TaskModal from './components/TaskModal';
-import { getTasks, deleteTask } from './api/tasks';
+import { getTasks, deleteTask, getLists } from './api/tasks';
 
 export default function App() {
+  const [lists, setLists] = useState([]);
+  const [selectedList, setSelectedList] = useState("");
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
@@ -26,8 +28,14 @@ export default function App() {
     }
   };
   
+  const loadLists = async () => {
+    const data = await getLists();
+    setLists(data);
+  };
+
   useEffect(() => {
     fetchTasks();
+    loadLists();
   }, []);
 
   const handleAdd = () => {
@@ -57,18 +65,37 @@ export default function App() {
   return (
     <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
       <h1>To-Do List</h1>
+      <div style={{ marginBottom: "10px" }}>
+        <label>List: </label>
+        <select value={selectedList} onChange={(e) => setSelectedList(e.target.value)}>
+          <option value="">All</option>
+
+            {lists.map((l) => (
+          <option key={l.id} value={l.id}>
+            {l.name}
+          </option>
+          ))}
+        </select>
+      </div>
+
       <button onClick={handleAdd}>Add Task</button>
 
       <h2>Active Tasks</h2>
       <TaskList
-        tasks={tasks.filter((t) => t.status !== 'Complete')}
+        tasks
+	  .filter((t) => !selectedList || t.list_id == selectedList)
+	  .filter((t) => t.status !== "Complete")
+
         onEdit={handleEdit}
         onDelete={handleDelete}
       />
 
       <h2>Completed Tasks</h2>
       <TaskList
-        tasks={tasks.filter((t) => t.status === 'Complete')}
+        tasks
+	  .filter((t) => !selectedList || t.list_id == selectedList)
+	  .filter((t) => t.status === "Complete")
+
         onEdit={handleEdit}
         onDelete={handleDelete}
       />
