@@ -38,11 +38,11 @@ export default function TaskList({ tasks, onEdit, onDelete }) {
 		</button>		  )}
 
 		  <button onClick={() => onEdit(task)}>
-		    Edit
+		    ✏️
 		  </button>
 
 		  <button onClick={() => onDelete(task.id)}>
-		    Delete
+		    ❌
 		  </button>
 
 		</div>
