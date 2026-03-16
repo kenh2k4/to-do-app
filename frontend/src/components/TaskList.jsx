@@ -34,7 +34,7 @@ export default function TaskList({ tasks, onEdit, onDelete }) {
 
   		{task.status !== "Complete" && (
 		<button className="complete-btn" onClick={() => handleComplete(task)}>
-		  Complete
+		  ✅
 		</button>		  )}
 
 		  <button onClick={() => onEdit(task)}>
