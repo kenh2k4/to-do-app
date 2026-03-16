@@ -9,12 +9,16 @@ body {
   background-color: #121212;
   color: #e0e0e0;
   font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  align-items: flex-start;   /* keeps content at top */
+  justify-content: center;
 }
 
 #root {
   max-width: 900px;
-  margin: auto;
+  margin: 0 auto;
   padding: 1rem;
+  min-height: 100vh;
 }
 
 
@@ -225,4 +229,30 @@ textarea:focus {
     flex-direction: column;
   }
 
+}
+
+/* ---------- PRIORITY COLORS ---------- */
+
+.priority-1 {
+  border-left: 5px solid #e53935;   /* High = red */
+}
+
+.priority-2 {
+  border-left: 5px solid #fdd835;   /* Medium = yellow */
+}
+
+.priority-3 {
+  border-left: 5px solid #43a047;   /* Low = green */
+}
+
+.task-card.priority-1 {
+  border-left: 6px solid #e53935;
+}
+
+.task-card.priority-2 {
+  border-left: 6px solid #fdd835;
+}
+
+.task-card.priority-3 {
+  border-left: 6px solid #43a047;
 }

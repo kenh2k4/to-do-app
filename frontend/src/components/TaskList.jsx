@@ -16,7 +16,7 @@ export default function TaskList({ tasks, onEdit, onDelete }) {
     <div className="task-list">
 
       {tasks.map((task) => (
-        <div key={task.id} className="task-card">
+        <div key={task.id} className={`task-card priority-${task.priority}`}>
 
           <div className="task-title">
             {task.task_name}
