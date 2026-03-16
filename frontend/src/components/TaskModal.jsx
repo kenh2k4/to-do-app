@@ -67,7 +67,24 @@ export default function TaskModal({ isOpen, onClose, task, onSave }) {
   };
 
   return (
-    <Modal isOpen={isOpen} onRequestClose={onClose}>
+    <Modal
+  isOpen={isOpen}
+  onRequestClose={onClose}
+  style={{
+    overlay: {
+      backgroundColor: "rgba(0,0,0,0.7)",
+    },
+    content: {
+      backgroundColor: "#1e1e1e",
+      color: "#ffffff",
+      border: "1px solid #444",
+      maxWidth: "600px",
+      margin: "auto",
+      borderRadius: "10px",
+      padding: "20px",
+    },
+  }}
+>
       <h2>{task ? "Edit Task" : "Add Task"}</h2>
 
       <form className="modal-form" onSubmit={handleSubmit}>
