@@ -27,8 +27,11 @@ h1, h2 {
 
 /* ---------- BUTTONS ---------- */
 
-button {
+.app button {
   background-color: #333;
+}
+
+button {
   color: white;
   border: 1px solid #666;
   padding: 8px 10px;
@@ -192,4 +195,54 @@ form div {
 
 .task-buttons button {
   flex: 1;
+}
+
+button.complete-btn {
+  background-color: #2e7d32;
+  border-color: #2e7d32;
+}
+
+button.complete-btn:hover {
+  background-color: #3fa344;
+}
+
+.modal-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.modal-form input,
+.modal-form select {
+  flex: 1 1 150px;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.modal-buttons button {
+  background-color: #1976d2;
+  color: white;
+  border: none;
+}
+
+.modal-buttons button:last-child {
+  background-color: #555;
+}
+
+.ReactModal__Content {
+  max-width: 600px;
+  margin: auto;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+@media (max-width: 600px) {
+  .ReactModal__Content {
+    width: 95%;
+    inset: 10px !important;
+  }
 }

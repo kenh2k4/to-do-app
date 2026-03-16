@@ -74,7 +74,7 @@ export default function TaskModal({ isOpen, onClose, task, onSave }) {
   return (
     <Modal isOpen={isOpen} onRequestClose={onClose} contentLabel="Task Modal">
       <h2>{task ? 'Edit Task' : 'Add Task'}</h2>
-      <form onSubmit={handleSubmit}>
+      <form className="modal-form" onSubmit={handleSubmit}>
         <label>Task Name:</label>
         <input
           name="task_name"
@@ -113,10 +113,14 @@ export default function TaskModal({ isOpen, onClose, task, onSave }) {
         <label>Due Date:</label>
         <input type="date" name="due_date" value={formData.due_date} onChange={handleChange} />
 
-        <button type="submit">Save</button>
+        <div className="app">
+	<div className="modal-buttons">
+	<button type="submit">Save</button>
         <button type="button" onClick={onClose}>
           Cancel
         </button>
+	</div>
+	</div>
       </form>
     </Modal>
   );
