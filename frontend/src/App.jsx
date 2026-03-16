@@ -81,24 +81,26 @@ export default function App() {
       <button onClick={handleAdd}>Add Task</button>
 
       <h2>Active Tasks</h2>
-      <TaskList
-        tasks
-	  .filter((t) => !selectedList || t.list_id == selectedList)
-	  .filter((t) => t.status !== "Complete")
-
-        onEdit={handleEdit}
-        onDelete={handleDelete}
-      />
+	<TaskList
+	  tasks={
+	    tasks
+	      .filter((t) => !selectedList || t.list_id == selectedList)
+	      .filter((t) => t.status !== "Complete")
+	  }
+	  onEdit={handleEdit}
+	  onDelete={handleDelete}
+	/>
 
       <h2>Completed Tasks</h2>
-      <TaskList
-        tasks
-	  .filter((t) => !selectedList || t.list_id == selectedList)
-	  .filter((t) => t.status === "Complete")
-
-        onEdit={handleEdit}
-        onDelete={handleDelete}
-      />
+	<TaskList
+	  tasks={
+	    tasks
+	      .filter((t) => !selectedList || t.list_id == selectedList)
+	      .filter((t) => t.status === "Complete")
+	  }
+	  onEdit={handleEdit}
+	  onDelete={handleDelete}
+	/>
 
       <TaskModal
         isOpen={modalOpen}
